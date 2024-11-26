@@ -13,3 +13,6 @@ Thay vì phải nghiên cứu từng chút 1 thì sử dụng công cụ quản 
 Tư duy ngược trong quản lý cấu hình
   + Thay vì phải học từng các properties để thiết lập file yaml thì ta sẽ học file yaml từ giao diện có sẵn
   + Tải File yaml về để nghiên cứu và deploy tương tự format chuẩn đó
+
+![image](https://github.com/user-attachments/assets/6ce8cd23-ae9f-4d68-9ff1-6735d3bff30a)
+![image](https://github.com/user-attachments/assets/20e6cc87-cec1-4223-a32c-70badc3d3f92)
