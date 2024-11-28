@@ -57,7 +57,8 @@ Cách vào môi trường pod:
 ```bash
 kubectl exec -it car-serv -n car-serv -- /bin/bash
 ```
-takaway:
+
+# key takeaway
 - 1 Pod chỉ nên có 1 container để giảm thiểu sự phụ thuộc và dễ debug.
 - Có thể lên docker hub xem các layer của image
 - kubectl giao tiếp thông qua api của cụm k8s
