@@ -66,6 +66,8 @@ helm -n ingress-nginx install ingress-nginx -f ingress-nginx/values.yaml ingress
 - Tạo 1 namespace cho ingress-nginx hoạt động tương tự như 1 proxy server riêng biệt
 - helm -n "namespace" install "release name" -f "file cấu hình của controller" "heml chart"
 
+![image](https://github.com/user-attachments/assets/5584c6ad-72b7-4902-8048-fcb1f0eda4bd)
+- Service ingress-controller này là 1 service NodePort và có thể truy cập từ AnyNode.
 ## Cài đặt LoadBalancer
 - Trước khi client đi vào ingress sẽ có 1 load balancer
 - Cần phải tạo 1 server mới cho loadbalancer:
