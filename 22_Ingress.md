@@ -64,7 +64,7 @@ kubectl create ns ingress-nginx
 helm -n ingress-nginx install ingress-nginx -f ingress-nginx/values.yaml ingress-nginx
 ```
 - Tạo 1 namespace cho ingress-nginx hoạt động tương tự như 1 proxy server riêng biệt
-- helm -n <namespace> install <release name> -f <file cấu hình của controller> <heml chart>
+- helm -n "namespace" install "release name" -f "file cấu hình của controller" "heml chart"
 
 ## Cài đặt LoadBalancer
 - Trước khi client đi vào ingress sẽ có 1 load balancer
