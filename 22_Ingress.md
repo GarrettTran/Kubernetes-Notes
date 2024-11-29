@@ -14,7 +14,10 @@
 ## [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/)
 - Bắt buộc phải tạo 1 Ingress controller để define các rule cho ingress giao tiếp với cluster
 - K8S hỗ trợ Ingress Controller cho AWS, GCE hay Nignx
-  
+
+- Ingress Controller hoạt động ở cấp cluster nên có thể theo dõi được nhiều ingress trong cụm cũng như thiết lập được các rule cho các ingress ở trong nhiều namespace khác nhau
+- Sử dựng Kubernetes API để lắng nghe các Ingress resources bất kể namespace.
+- User tạo ingress -> Ingress được lưu trên API server -> Ingress controller sẽ liên tục tìm kiếm ở trên API server cái Ingress vừa được tạo -> Fetch và process -> Ingress Controller sẽ tự update routing config -> Map domain/path tới Service -> Pod.
 ## [Ingress nginx](https://kubernetes.github.io/ingress-nginx/deploy/)
 - Các cách tải Ingress Nginx:
     + Sử dụng Helm, project repo chart
