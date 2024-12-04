@@ -10,7 +10,7 @@
 - Các thông tin trong secret sẽ được mã hóa base64
 - Việc này còn giúp dữ liệu truyền đi giữa website không bị lỗi định dạng
 ## Secret type
-<img width="426" alt="image" src="https://github.com/user-attachments/assets/8d9b6f86-efef-4545-8fa7-804a6f96c340">
+![image](https://github.com/user-attachments/assets/8d9b6f86-efef-4545-8fa7-804a6f96c340)
 - Nếu không ghi gì ở trước nghĩa là xài lib k8s.io
 - Bài này chúng ta chỉ tập trung sử dụng Opaque và dockerconfigjson
 ### Opaque
