@@ -265,7 +265,79 @@ docker push garetttran/ecommerce-backend:v1
 - Trong file yaml, đổi tên các mục tương ứng
 - lưu ý containerPort thành 8080, host api-ecommerce.devopsedu.vn
 - Áp dụng cấu hình lên trên Rancher yaml import
-
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ecommerce-backend
+  name: ecommerce-backend-deployment
+  namespace: ecommerce
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: ecommerce-backend
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: ecommerce-backend
+      namespace: ecommerce
+    spec:
+      containers:
+        - image: garetttran/ecommerce-backend:v2
+          imagePullPolicy: Always
+          name: ecommerce-backend
+          ports:
+            - containerPort: 8080
+              name: tcp
+              protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ecommerce-frontend-clusterip
+  namespace: ecommerce
+spec:
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+    - name: tcp
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: ecommerce-backend
+  sessionAffinity: None
+  type: ClusterIP
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ecommerce-backend-ingress
+  namespace: ecommerce
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: api-ecommerce.devopsedu.vn
+      http:
+        paths:
+          - backend:
+              service:
+                name: ecommerce-backend-clusterip
+                port:
+                  number: 8080
+            path: /
+            pathType: Prefix
+```
 ![image](https://github.com/user-attachments/assets/92896c52-91bf-4084-8116-f9df4913e9a3)
 - test API để lấy các products, dự án backend được deploy thành công
 
