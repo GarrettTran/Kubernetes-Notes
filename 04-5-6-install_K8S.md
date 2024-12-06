@@ -1,12 +1,12 @@
 # methods to install k8s cluster #
 
-2 main ways to install: Manual/Automated
+- 2 main ways to install: Manual/Automated
 
 # Deploy k8s cluster on-premise #
-kubeadm
+- kubeadm
 
 ## k8s cluster model ##
-Controller will not have pod on it or it can have 
+- Controller will not have pod on it or it can have 
 
 ## Why Turn Off Swap for Kubernetes? ##
 
@@ -46,7 +46,10 @@ echo "net.bridge.bridge-nf-call-iptables = 1" | sudo tee -a /etc/sysctl.d/kubern
 echo "net.ipv4.ip_forward = 1" | sudo tee -a /etc/sysctl.d/kubernetes.conf
 sudo sysctl --system
 ```
+- Cho phép các gói IPv4 và IPv6 được truyền qua các cầu nối (bridges) trong Linux được xử lý bởi iptables.
 - Network configuration then apply the configuration to the system
+- Cho phép kernel Linux chuyển tiếp các gói IPv4 giữa các interface mạng.
+- Khi tính năng này được bật, Linux có thể hoạt động như một router chuyển tiếp gói giữa các mạng.
 
 ```bash
 sudo apt install -y curl gnupg2 software-properties-common apt-transport-https ca-certificates
